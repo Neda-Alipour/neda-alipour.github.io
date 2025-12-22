@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neda Alipour | Backend Developer</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --magenta: #d63f8f;
+            --magenta-light: #f472b6;
+            --magenta-dark: #b91c6c;
+            --white: #ffffff;
+            --cream: #fdf2f8;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .gradient-magenta {
+            background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-light) 100%);
+        }
+        
+        .text-magenta {
+            color: var(--magenta);
+        }
+        
+        .bg-magenta {
+            background-color: var(--magenta);
+        }
+        
+        .border-magenta {
+            border-color: var(--magenta);
+        }
+        
+        .hover-magenta:hover {
+            background-color: var(--magenta-dark);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(214, 63, 143, 0.15);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--magenta);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            border: 1px solid #f9a8d4;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: var(--magenta);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--magenta-light);
+        }
+        
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-light) 100%);
+            opacity: 0.1;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="bg-white text-gray-700">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="font-display text-2xl font-bold text-magenta">NA</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-magenta transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-magenta transition-colors">About</a>
+                    <a href="#experience" class="nav-link text-gray-600 hover:text-magenta transition-colors">Experience</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-magenta transition-colors">Skills</a>
+                    <a href="#education" class="nav-link text-gray-600 hover:text-magenta transition-colors">Education</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-magenta transition-colors">Contact</a>
+                </div>
+                <button id="mobileMenuBtn" class="md:hidden text-magenta">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-4">
+                <a href="#home" class="block text-gray-600 hover:text-magenta transition-colors">Home</a>
+                <a href="#about" class="block text-gray-600 hover:text-magenta transition-colors">About</a>
+                <a href="#experience" class="block text-gray-600 hover:text-magenta transition-colors">Experience</a>
+                <a href="#skills" class="block text-gray-600 hover:text-magenta transition-colors">Skills</a>
+                <a href="#education" class="block text-gray-600 hover:text-magenta transition-colors">Education</a>
+                <a href="#contact" class="block text-gray-600 hover:text-magenta transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-pink-50/30 to-white">
+        <div class="decorative-circle w-96 h-96 -top-20 -right-20"></div>
+        <div class="decorative-circle w-64 h-64 bottom-20 -left-10"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
+            <div class="fade-in">
+                <p class="text-magenta font-medium mb-4 tracking-wider uppercase">Backend Developer</p>
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl font-bold text-gray-800 mb-6 fade-in delay-1">
+                Neda <span class="text-magenta">Alipour</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10 fade-in delay-2">
+                Curious and self-driven software engineer crafting robust backend solutions with precision and passion.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in delay-3">
+                <a href="#contact" class="gradient-magenta text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg shadow-pink-200">
+                    Get In Touch
+                </a>
+                <a href="#experience" class="border-2 border-magenta text-magenta px-8 py-4 rounded-full font-medium hover:bg-magenta hover:text-white transition-all">
+                    View My Work
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-6 mt-12 fade-in delay-3">
+                <a href="https://linkedin.com/in/neda-alipour" target="_blank" class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-magenta hover:bg-magenta hover:text-white transition-all">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://github.com/neda-alipour" target="_blank" class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-magenta hover:bg-magenta hover:text-white transition-all">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="mailto:Neda.alipour.dev@gmail.com" class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-magenta hover:bg-magenta hover:text-white transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="w-72 h-72 md:w-96 md:h-96 mx-auto rounded-full gradient-magenta p-1">
+                        <div class="w-full h-full rounded-full bg-pink-50 flex items-center justify-center">
+                            <span class="font-display text-8xl md:text-9xl text-magenta/30">N</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 md:right-1/4 bg-white rounded-2xl shadow-xl p-4 border border-pink-100">
+                        <p class="text-magenta font-bold text-2xl">2+</p>
+                        <p class="text-gray-600 text-sm">Years Experience</p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="font-display text-4xl font-bold text-gray-800 mb-6">
+                        About <span class="text-magenta">Me</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-magenta rounded-full mb-6"></div>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Curious and self-driven software engineer with hands-on experience building backend applications, experimenting with tools, and solving technical challenges. I enjoy exploring new technologies, breaking down unfamiliar problems, and learning fast through real projects.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        I've worked in fintech as the primary backend developer, which taught me how to research solutions independently, test ideas, and improve systems step by step. I'm passionate about experimenting with new libraries, trying out different approaches, and documenting what I learn along the way.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-pink-50 text-magenta rounded-full text-sm font-medium">Problem Solver</span>
+                        <span class="px-4 py-2 bg-pink-50 text-magenta rounded-full text-sm font-medium">Self-Learner</span>
+                        <span class="px-4 py-2 bg-pink-50 text-magenta rounded-full text-sm font-medium">Fintech Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gradient-to-br from-pink-50/50 to-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">
+                    Professional <span class="text-magenta">Experience</span>
+                </h2>
+                <div class="w-20 h-1 bg-magenta rounded-full mx-auto"></div>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-magenta to-pink-200 rounded-full"></div>
+                
+                <!-- Experience Item -->
+                <div class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8 mb-12">
+                    <div class="md:text-right md:pr-12">
+                        <div class="timeline-item bg-white rounded-2xl shadow-lg p-6 card-hover border border-pink-100">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-magenta font-medium bg-pink-50 px-3 py-1 rounded-full text-sm">2022 - 2024</span>
+                                <a href="https://www.goldis.ir" target="_blank" class="text-gray-400 hover:text-magenta transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </a>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-gray-800 mb-2">Backend Developer</h3>
+                            <p class="text-magenta font-medium mb-4">Goldis Digital Gold Investment</p>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Worked as the main backend engineer for an online gold-trading fintech platform. This role required constant experimentation, debugging, and independent research to improve backend systems and solve complex problems.
+                            </p>
+                            <div class="flex flex-wrap gap-2 justify-start">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Python</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Flask</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">MySQL</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Redis</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Achievements -->
+                <div class="mt-12 bg-white rounded-2xl shadow-lg p-8 border border-pink-100">
+                    <h3 class="font-display text-2xl font-bold text-gray-800 mb-6">Key Responsibilities & Achievements</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Independent Research</h4>
+                                <p class="text-gray-600 text-sm">Explored and tested backend solutions independently due to lack of senior engineers.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Tool Building</h4>
+                                <p class="text-gray-600 text-sm">Built tools and scripts to verify data accuracy, automate tasks, and test new features.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Data Migration</h4>
+                                <p class="text-gray-600 text-sm">Migrated ~1500 user records from Redis → MySQL using a custom Python script.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Database Optimization</h4>
+                                <p class="text-gray-600 text-sm">Tried different database structures, compared results, and validated improvements.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Debugging & Testing</h4>
+                                <p class="text-gray-600 text-sm">Debugged backend logic by reproducing issues, exploring root causes, and validating fixes.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Documentation</h4>
+                                <p class="text-gray-600 text-sm">Wrote clear internal documentation about bugs, migration steps, and backend functionality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">
+                    Technical <span class="text-magenta">Skills</span>
+                </h2>
+                <div class="w-20 h-1 bg-magenta rounded-full mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Languages -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
+                    <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Languages</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Python</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">JavaScript (Node.js)</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">SQL</span>
+                    </div>
+                </div>
+                
+                <!-- Backend -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
+                    <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Backend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Flask</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Express.js</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">REST APIs</span>
+                    </div>
+                </div>
+                
+                <!-- Databases -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
+                    <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Databases</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">MySQL</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">MongoDB</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">PostgreSQL</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Redis</span>
+                    </div>
+                </div>
+                
+                <!-- Tools -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
+                    <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Docker (learning)</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Git</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Linux fundamentals</span>
+                    </div>
+                </div>
+                
+                <!-- Concepts -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
+                    <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Concepts</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Transactions</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Data Accuracy</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Security</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Caching</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Fintech Logic</span>
+                    </div>
+                </div>
+                
+                <!-- Cloud -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
+                    <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Cloud</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">AWS (learning)</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Azure (learning)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gradient-to-br from-pink-50/50 to-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">
+                    <span class="text-magenta">Education</span> & Learning
+                </h2>
+                <div class="w-20 h-1 bg-magenta rounded-full mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- University -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-pink-100">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 rounded-2xl gradient-magenta flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                        </div>
+                        <span class="text-magenta font-medium bg-pink-50 px-4 py-1 rounded-full text-sm">2018 - 2022</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-800 mb-2">Bachelor of Electrical and Electronics Engineering</h3>
+                    <p class="text-magenta font-medium mb-4">University of Science & Culture</p>
+                    <p class="text-gray-600 text-sm">Completed comprehensive engineering program with strong foundation in problem-solving and technical skills.</p>
+                </div>
+                
+                <!-- Current Learning -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-pink-100">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-16 h-16 rounded-2xl gradient-magenta flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <span class="text-magenta font-medium bg-pink-50 px-4 py-1 rounded-full text-sm">In Progress</span>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-800 mb-2">Continuous Learning</h3>
+                    <p class="text-magenta font-medium mb-4">Self-Directed Development</p>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center"><span class="w-2 h-2 rounded-full bg-magenta mr-2"></span>Node.js, Express.js, EJS, PostgreSQL</li>
+                        <li class="flex items-center"><span class="w-2 h-2 rounded-full bg-magenta mr-2"></span>Docker & Azure cloud services</li>
+                        <li class="flex items-center"><span class="w-2 h-2 rounded-full bg-magenta mr-2"></span>Angela Yu's Full Web Development Course</li>
+                        <li class="flex items-center"><span class="w-2 h-2 rounded-full bg-magenta mr-2"></span>Building backend projects to strengthen API skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">
+                    Get In <span class="text-magenta">Touch</span>
+                </h2>
+                <div class="w-20 h-1 bg-magenta rounded-full mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">I'm currently looking for new opportunities. Feel free to reach out if you'd like to connect!</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Phone -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center card-hover border border-pink-100">
+                    <div class="w-16 h-16 rounded-full gradient-magenta flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Phone</h3>
+                    <a href="tel:+971552501210" class="text-magenta hover:underline">+971-55-250-1210</a>
+                </div>
+                
+                <!-- Email -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center card-hover border border-pink-100">
+                    <div class="w-16 h-16 rounded-full gradient-magenta flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Email</h3>
+                    <a href="mailto:Neda.alipour.dev@gmail.com" class="text-magenta hover:underline">Neda.alipour.dev@gmail.com</a>
+                </div>
+                
+                <!-- Location -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center card-hover border border-pink-100">
+                    <div class="w-16 h-16 rounded-full gradient-magenta flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Location</h3>
+                    <p class="text-magenta">Dubai, United Arab Emirates</p>
+                </div>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-6">
+                <a href="https://linkedin.com/in/neda-alipour" target="_blank" class="flex items-center space-x-3 bg-white px-6 py-4 rounded-full shadow-lg border border-pink-100 hover:shadow-xl hover:border-magenta transition-all">
+                    <svg class="w-6 h-6 text-magenta" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span class="font-medium text-gray-700">LinkedIn</span>
+                </a>
+                <a href="https://github.com/neda-alipour" target="_blank" class="flex items-center space-x-3 bg-white px-6 py-4 rounded-full shadow-lg border border-pink-100 hover:shadow-xl hover:border-magenta transition-all">
+                    <svg class="w-6 h-6 text-magenta" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <span class="font-medium text-gray-700">GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-magenta py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-white/90">© 2024 Neda Alipour. All rights reserved.</p>
+            <p class="text-white/70 text-sm mt-2">Crafted with passion for backend development</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section > div').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
