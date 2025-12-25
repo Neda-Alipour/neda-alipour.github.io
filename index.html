@@ -334,10 +334,14 @@
                     <h2 class="font-display text-4xl font-bold text-gray-800 mb-6">About <span class="text-magenta">Me</span></h2>
                     <div class="w-20 h-1 bg-magenta rounded-full mb-6"></div>
                     <p class="text-gray-600 leading-relaxed mb-6">
-                        Curious and self-driven software engineer with hands-on experience building backend applications, experimenting with tools, and solving technical challenges. I enjoy exploring new technologies, breaking down unfamiliar problems, and learning fast through real projects.
+                        I’m a backend developer who cares deeply about how systems actually work not just writing code, but building logic that people can rely on.
+
+I enjoy solving real problems, especially when accuracy matters. I like working close to the business side of software, where data, transactions, and edge cases aren’t theoretical they affect real users.
                     </p>
                     <p class="text-gray-600 leading-relaxed mb-8">
-                        I've worked in fintech as the primary backend developer, which taught me how to research solutions independently, test ideas, and improve systems step by step. I'm passionate about experimenting with new libraries, trying out different approaches, and documenting what I learn along the way.
+                        I have a background in Electrical Engineering, which shaped the way I think: analytically, systematically, and with attention to detail. After graduating in 2022, I found my real interest in software development particularly backend systems.
+
+What I enjoy most about backend work is understanding the full picture: how data flows, how rules are enforced, and how small mistakes can have big consequences. I’m not interested in writing code in isolation; I want to understand why something exists and how it’s used.
                     </p>
                     <div class="flex flex-wrap gap-3">
                         <span class="px-4 py-2 bg-pink-50 text-magenta rounded-full text-sm font-medium">Problem Solver</span>
@@ -467,7 +471,7 @@
             <div class="text-center mb-12">
                 <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">Featured <span class="text-magenta">Projects</span></h2>
                 <div class="w-20 h-1 bg-magenta rounded-full mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">A curated selection of backend-focused work. (You can edit the project list in the JavaScript section at the bottom.)</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">A curated selection of backend-focused work.</p>
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-3 mb-10" id="projectFilters" aria-label="Project filters">
@@ -675,12 +679,13 @@
     <!-- Footer -->
     <footer class="gradient-magenta py-8">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="text-white/90">© 2024 Neda Alipour. All rights reserved.</p>
+            <p class="text-white/90">© <span id="current-year"></span> Neda Alipour. All rights reserved.</p>
             <p class="text-white/70 text-sm mt-2">Crafted with passion for backend development</p>
         </div>
     </footer>
 
     <script>
+        
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -725,50 +730,34 @@
         // Projects (editable data)
         const projects = [
             {
-                title: 'Transaction Reconciliation Tool',
-                subtitle: 'Backend automation / data integrity',
-                description: 'A backend-focused tool to compare trading records across sources, flag mismatches, and generate actionable reports for investigation.',
+                title: 'Blog Web Application',
+                subtitle: 'Capstone Project for the "The Complete 2023 Web Development Bootcamp - Angela Yu" course.',
+                description: 'The goal of this project is to create a Blog web application using Node.js, Express.js, and EJS. The application allows users to create and view blog posts.',
                 highlights: [
-                    'Designed clear reconciliation rules and validation steps for high-sensitivity data',
-                    'Automated report generation to reduce manual checks',
-                    'Built with a focus on traceability and repeatable runs'
+                    'Post Creation: Users are able to create new posts',
+                    'Post Viewing: The home page allows the user to view all their posts',
+                    'Post Update/Delete: Users are edit and delete posts as needed',
                 ],
-                stack: ['Python', 'SQL', 'MySQL', 'Redis'],
+                stack: ['Node.js', 'Express.js', 'EJS'],
                 links: {
-                    github: '',
+                    github: 'https://github.com/Neda-Alipour/Blog-web-application',
                     demo: ''
                 }
             },
             {
-                title: 'REST API Starter Kit',
-                subtitle: 'Clean architecture / scalable APIs',
-                description: 'A structured API template with consistent error handling, request validation, and environment-based configuration—ready to extend for real products.',
+                title: 'Weather API Application',
+                subtitle: 'Capstone Project 2 for the "The Complete 2023 Web Development Bootcamp - Angela Yu" course',
+                description: 'A website using the Express/Node.js platform, with the Axios HTTP client, that integrates a chosen public API from the given list: Public API Lists.',
                 highlights: [
-                    'Implemented standard API patterns (pagination, validation, consistent responses)',
-                    'Added logging + health endpoints for production readiness',
-                    'Focused on maintainable project layout'
+                    'Develop an understanding of how to integrate public APIs into web projects',
+                    'Enhance understanding of client-server communication using Axios'
                 ],
-                stack: ['Python', 'Flask', 'REST APIs'],
+                stack: ['Node.js', 'Express.js', 'EJS'],
                 links: {
-                    github: '',
+                    github: 'https://github.com/Neda-Alipour/Weather-API-Application',
                     demo: ''
                 }
             },
-            {
-                title: 'Queue Worker & Scheduled Jobs',
-                subtitle: 'Background processing / reliability',
-                description: 'A lightweight worker that processes background tasks (notifications, sync jobs) with retries, monitoring hooks, and clear failure reporting.',
-                highlights: [
-                    'Added retry strategy + dead-letter style handling for failed jobs',
-                    'Separated sync/async responsibilities for better reliability',
-                    'Optimized for predictable throughput'
-                ],
-                stack: ['Python', 'Redis', 'Caching', 'Linux'],
-                links: {
-                    github: '',
-                    demo: ''
-                }
-            }
         ];
 
         const projectFiltersEl = document.getElementById('projectFilters');
@@ -897,6 +886,8 @@
         document.querySelectorAll('section > div').forEach(el => {
             observer.observe(el);
         });
+
+         document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
