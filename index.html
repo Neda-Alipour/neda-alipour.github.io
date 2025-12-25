@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neda Alipour | Backend Developer</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
     <style>
         :root {
             --magenta: #d63f8f;
@@ -16,49 +16,49 @@
             --white: #ffffff;
             --cream: #fdf2f8;
         }
-        
+
         * {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
-        
+
         .font-display {
             font-family: 'Playfair Display', serif;
         }
-        
+
         .gradient-magenta {
             background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-light) 100%);
         }
-        
+
         .text-magenta {
             color: var(--magenta);
         }
-        
+
         .bg-magenta {
             background-color: var(--magenta);
         }
-        
+
         .border-magenta {
             border-color: var(--magenta);
         }
-        
+
         .hover-magenta:hover {
             background-color: var(--magenta-dark);
         }
-        
+
         .card-hover {
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(214, 63, 143, 0.15);
         }
-        
+
         .nav-link {
             position: relative;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -69,16 +69,47 @@
             background: var(--magenta);
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
         }
-        
+
+        /* Glassy navbar */
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.55);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px) saturate(170%);
+            -webkit-backdrop-filter: blur(16px) saturate(170%);
+        }
+
+        .nav-glass.nav-scrolled {
+            background: rgba(255, 255, 255, 0.78);
+            border-bottom: 1px solid rgba(214, 63, 143, 0.14);
+            box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+        }
+
         .skill-tag {
             background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
             border: 1px solid #f9a8d4;
+            color: #374151;
+            cursor: default;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+            will-change: transform;
         }
-        
+
+        .skill-tag:hover,
+        .skill-tag:focus-visible {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-light) 100%);
+            border-color: rgba(185, 28, 108, 0.45);
+            color: #ffffff;
+            box-shadow: 0 14px 28px rgba(214, 63, 143, 0.20);
+        }
+
+        .skill-tag:active {
+            transform: translateY(-1px) scale(0.99);
+        }
+
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -91,47 +122,139 @@
             border: 3px solid white;
             box-shadow: 0 0 0 3px var(--magenta-light);
         }
-        
+
+        /* Hero decorative circles (Version 2 style, slightly bolder) */
         .decorative-circle {
             position: absolute;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-light) 100%);
-            opacity: 0.1;
+            pointer-events: none;
+            opacity: 0.26;
+            mix-blend-mode: multiply;
+            background: radial-gradient(
+                circle at 30% 30%,
+                rgba(244, 114, 182, 0.98) 0%,
+                rgba(214, 63, 143, 0.78) 40%,
+                rgba(214, 63, 143, 0.14) 72%,
+                rgba(214, 63, 143, 0.0) 79%
+            );
+            filter: blur(0px);
+            will-change: transform;
+            animation: blobFloat 16s ease-in-out infinite;
         }
-        
+
+        .decorative-circle.blob-1 {
+            animation-duration: 18s;
+        }
+
+        .decorative-circle.blob-2 {
+            animation-duration: 22s;
+            animation-direction: reverse;
+        }
+
+        @keyframes blobFloat {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+            20% {
+                transform: translate3d(18px, -14px, 0) scale(1.07);
+            }
+            45% {
+                transform: translate3d(-10px, 18px, 0) scale(0.98);
+            }
+            70% {
+                transform: translate3d(-18px, -6px, 0) scale(1.08);
+            }
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 0.6s ease forwards;
         }
-        
+
         @keyframes fadeIn {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Projects UI helpers */
+        .chip-btn {
+            border: 1px solid rgba(214, 63, 143, 0.28);
+            background: rgba(253, 242, 248, 0.7);
+            color: #6b7280;
+            transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+
+        .chip-btn:hover {
+            transform: translateY(-1px);
+            border-color: rgba(214, 63, 143, 0.55);
+            color: var(--magenta-dark);
+            background: rgba(252, 231, 243, 0.9);
+        }
+
+        .chip-btn.active {
+            background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-light) 100%);
+            color: white;
+            border-color: rgba(185, 28, 108, 0.2);
+            box-shadow: 0 12px 28px rgba(214, 63, 143, 0.18);
+        }
+
+        .proj-tag {
+            border: 1px solid rgba(214, 63, 143, 0.18);
+            background: rgba(253, 242, 248, 0.6);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                scroll-behavior: auto !important;
+            }
+            .decorative-circle {
+                animation: none !important;
+            }
+            .card-hover {
+                transition: none !important;
+            }
+            .fade-in {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-white text-gray-700">
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-glass transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#home" class="font-display text-2xl font-bold text-magenta">NA</a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-600 hover:text-magenta transition-colors">Home</a>
-                    <a href="#about" class="nav-link text-gray-600 hover:text-magenta transition-colors">About</a>
-                    <a href="#experience" class="nav-link text-gray-600 hover:text-magenta transition-colors">Experience</a>
-                    <a href="#skills" class="nav-link text-gray-600 hover:text-magenta transition-colors">Skills</a>
-                    <a href="#education" class="nav-link text-gray-600 hover:text-magenta transition-colors">Education</a>
-                    <a href="#contact" class="nav-link text-gray-600 hover:text-magenta transition-colors">Contact</a>
+                    <a href="#home" class="nav-link text-gray-700 hover:text-magenta transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-magenta transition-colors">About</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-magenta transition-colors">Experience</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-magenta transition-colors">Projects</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-magenta transition-colors">Skills</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-magenta transition-colors">Education</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-magenta transition-colors">Contact</a>
                 </div>
-                <button id="mobileMenuBtn" class="md:hidden text-magenta">
+                <button id="mobileMenuBtn" class="md:hidden text-magenta" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -139,21 +262,22 @@
             </div>
             <!-- Mobile Menu -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-4">
-                <a href="#home" class="block text-gray-600 hover:text-magenta transition-colors">Home</a>
-                <a href="#about" class="block text-gray-600 hover:text-magenta transition-colors">About</a>
-                <a href="#experience" class="block text-gray-600 hover:text-magenta transition-colors">Experience</a>
-                <a href="#skills" class="block text-gray-600 hover:text-magenta transition-colors">Skills</a>
-                <a href="#education" class="block text-gray-600 hover:text-magenta transition-colors">Education</a>
-                <a href="#contact" class="block text-gray-600 hover:text-magenta transition-colors">Contact</a>
+                <a href="#home" class="block text-gray-700 hover:text-magenta transition-colors">Home</a>
+                <a href="#about" class="block text-gray-700 hover:text-magenta transition-colors">About</a>
+                <a href="#experience" class="block text-gray-700 hover:text-magenta transition-colors">Experience</a>
+                <a href="#projects" class="block text-gray-700 hover:text-magenta transition-colors">Projects</a>
+                <a href="#skills" class="block text-gray-700 hover:text-magenta transition-colors">Skills</a>
+                <a href="#education" class="block text-gray-700 hover:text-magenta transition-colors">Education</a>
+                <a href="#contact" class="block text-gray-700 hover:text-magenta transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-pink-50/30 to-white">
-        <div class="decorative-circle w-96 h-96 -top-20 -right-20"></div>
-        <div class="decorative-circle w-64 h-64 bottom-20 -left-10"></div>
-        
+        <div class="decorative-circle blob-1 w-96 h-96 -top-20 -right-20"></div>
+        <div class="decorative-circle blob-2 w-80 h-80 bottom-16 -left-16"></div>
+
         <div class="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
             <div class="fade-in">
                 <p class="text-magenta font-medium mb-4 tracking-wider uppercase">Backend Developer</p>
@@ -165,28 +289,24 @@
                 Curious and self-driven software engineer crafting robust backend solutions with precision and passion.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in delay-3">
-                <a href="#contact" class="gradient-magenta text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg shadow-pink-200">
-                    Get In Touch
-                </a>
-                <a href="#experience" class="border-2 border-magenta text-magenta px-8 py-4 rounded-full font-medium hover:bg-magenta hover:text-white transition-all">
-                    View My Work
-                </a>
+                <a href="#contact" class="gradient-magenta text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg shadow-pink-200">Get In Touch</a>
+                <a href="#experience" class="border-2 border-magenta text-magenta px-8 py-4 rounded-full font-medium hover:bg-magenta hover:text-white transition-all">View My Work</a>
             </div>
-            
+
             <!-- Social Links -->
             <div class="flex justify-center space-x-6 mt-12 fade-in delay-3">
-                <a href="https://linkedin.com/in/neda-alipour" target="_blank" class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-magenta hover:bg-magenta hover:text-white transition-all">
+                <a href="https://linkedin.com/in/neda-alipour" target="_blank" class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-magenta hover:bg-magenta hover:text-white transition-all" rel="noopener" aria-label="LinkedIn">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
-                <a href="https://github.com/neda-alipour" target="_blank" class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-magenta hover:bg-magenta hover:text-white transition-all">
+                <a href="https://github.com/neda-alipour" target="_blank" class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-magenta hover:bg-magenta hover:text-white transition-all" rel="noopener" aria-label="GitHub">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
-                <a href="mailto:Neda.alipour.dev@gmail.com" class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-magenta hover:bg-magenta hover:text-white transition-all">
+                <a href="mailto:Neda.alipour.dev@gmail.com" class="w-12 h-12 rounded-full bg-pink-50 flex items-center justify-center text-magenta hover:bg-magenta hover:text-white transition-all" aria-label="Email">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </a>
             </div>
         </div>
-        
+
         <!-- Scroll Indicator -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
             <svg class="w-6 h-6 text-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -211,9 +331,7 @@
                     </div>
                 </div>
                 <div>
-                    <h2 class="font-display text-4xl font-bold text-gray-800 mb-6">
-                        About <span class="text-magenta">Me</span>
-                    </h2>
+                    <h2 class="font-display text-4xl font-bold text-gray-800 mb-6">About <span class="text-magenta">Me</span></h2>
                     <div class="w-20 h-1 bg-magenta rounded-full mb-6"></div>
                     <p class="text-gray-600 leading-relaxed mb-6">
                         Curious and self-driven software engineer with hands-on experience building backend applications, experimenting with tools, and solving technical challenges. I enjoy exploring new technologies, breaking down unfamiliar problems, and learning fast through real projects.
@@ -235,98 +353,106 @@
     <section id="experience" class="py-20 bg-gradient-to-br from-pink-50/50 to-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">
-                    Professional <span class="text-magenta">Experience</span>
-                </h2>
+                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">Professional <span class="text-magenta">Experience</span></h2>
                 <div class="w-20 h-1 bg-magenta rounded-full mx-auto"></div>
             </div>
-            
-            <div class="relative">
-                <!-- Timeline Line -->
-                <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-magenta to-pink-200 rounded-full"></div>
-                
-                <!-- Experience Item -->
-                <div class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8 mb-12">
-                    <div class="md:text-right md:pr-12">
-                        <div class="timeline-item bg-white rounded-2xl shadow-lg p-6 card-hover border border-pink-100">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-magenta font-medium bg-pink-50 px-3 py-1 rounded-full text-sm">2022 - 2024</span>
-                                <a href="https://www.goldis.ir" target="_blank" class="text-gray-400 hover:text-magenta transition-colors">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                </a>
-                            </div>
-                            <h3 class="font-display text-xl font-bold text-gray-800 mb-2">Backend Developer</h3>
-                            <p class="text-magenta font-medium mb-4">Goldis Digital Gold Investment</p>
-                            <p class="text-gray-600 text-sm mb-4">
-                                Worked as the main backend engineer for an online gold-trading fintech platform. This role required constant experimentation, debugging, and independent research to improve backend systems and solve complex problems.
-                            </p>
-                            <div class="flex flex-wrap gap-2 justify-start">
-                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Python</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Flask</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">MySQL</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Redis</span>
-                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Git</span>
-                            </div>
-                        </div>
+
+            <!-- Single combined card -->
+            <div class="bg-white rounded-2xl shadow-lg border border-pink-100 p-8 card-hover">
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
+                    <div>
+                        <span class="text-magenta font-medium bg-pink-50 px-3 py-1 rounded-full text-sm">2022 - 2024</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <p class="text-magenta font-medium">Goldis Digital Gold Investment</p>
+                        <a href="https://www.goldis.ir" target="_blank" class="text-gray-400 hover:text-magenta transition-colors" rel="noopener" aria-label="Open company website">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Key Achievements -->
-                <div class="mt-12 bg-white rounded-2xl shadow-lg p-8 border border-pink-100">
-                    <h3 class="font-display text-2xl font-bold text-gray-800 mb-6">Key Responsibilities & Achievements</h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Independent Research</h4>
-                                <p class="text-gray-600 text-sm">Explored and tested backend solutions independently due to lack of senior engineers.</p>
-                            </div>
+
+                <div class="grid lg:grid-cols-5 gap-8">
+                    <!-- Role summary -->
+                    <div class="lg:col-span-2">
+                        <h3 class="font-display text-2xl font-bold text-gray-800 mb-3">Backend Developer</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Worked as the main backend engineer for an online gold-trading fintech platform. This role required constant experimentation, debugging, and independent research to improve backend systems and solve complex problems.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Python</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Flask</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">MySQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Redis</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs">Git</span>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Tool Building</h4>
-                                <p class="text-gray-600 text-sm">Built tools and scripts to verify data accuracy, automate tasks, and test new features.</p>
-                            </div>
+                    </div>
+
+                    <!-- Responsibilities & achievements (inside same card) -->
+                    <div class="lg:col-span-3">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-display text-xl font-bold text-gray-800">Key Responsibilities & Achievements</h4>
+                            <div class="hidden lg:block w-28 h-px bg-pink-200"></div>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path></svg>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Independent Research</h5>
+                                    <p class="text-gray-600 text-sm">Explored and tested backend solutions independently due to lack of senior engineers.</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Data Migration</h4>
-                                <p class="text-gray-600 text-sm">Migrated ~1500 user records from Redis → MySQL using a custom Python script.</p>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Tool Building</h5>
+                                    <p class="text-gray-600 text-sm">Built tools and scripts to verify data accuracy, automate tasks, and test new features.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path></svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Data Migration</h5>
+                                    <p class="text-gray-600 text-sm">Migrated ~1500 user records from Redis → MySQL using a custom Python script.</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Database Optimization</h4>
-                                <p class="text-gray-600 text-sm">Tried different database structures, compared results, and validated improvements.</p>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Database Optimization</h5>
+                                    <p class="text-gray-600 text-sm">Tried different database structures, compared results, and validated improvements.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Debugging & Testing</h5>
+                                    <p class="text-gray-600 text-sm">Debugged backend logic by reproducing issues, exploring root causes, and validating fixes.</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Debugging & Testing</h4>
-                                <p class="text-gray-600 text-sm">Debugged backend logic by reproducing issues, exploring root causes, and validating fixes.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Documentation</h4>
-                                <p class="text-gray-600 text-sm">Wrote clear internal documentation about bugs, migration steps, and backend functionality.</p>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full gradient-magenta flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Documentation</h5>
+                                    <p class="text-gray-600 text-sm">Wrote clear internal documentation about bugs, migration steps, and backend functionality.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -335,16 +461,38 @@
         </div>
     </section>
 
+    <!-- Projects Section (NEW) -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">Featured <span class="text-magenta">Projects</span></h2>
+                <div class="w-20 h-1 bg-magenta rounded-full mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">A curated selection of backend-focused work. (You can edit the project list in the JavaScript section at the bottom.)</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-10" id="projectFilters" aria-label="Project filters">
+                <!-- Rendered by JS -->
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                <!-- Rendered by JS -->
+            </div>
+
+            <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://github.com/neda-alipour" target="_blank" rel="noopener" class="border-2 border-magenta text-magenta px-8 py-4 rounded-full font-medium hover:bg-magenta hover:text-white transition-all">More on GitHub</a>
+                <a href="#contact" class="gradient-magenta text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg shadow-pink-200">Discuss a Project</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">
-                    Technical <span class="text-magenta">Skills</span>
-                </h2>
+                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">Technical <span class="text-magenta">Skills</span></h2>
                 <div class="w-20 h-1 bg-magenta rounded-full mx-auto"></div>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Languages -->
                 <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
@@ -353,12 +501,12 @@
                     </div>
                     <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Languages</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Python</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">JavaScript (Node.js)</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">SQL</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Python</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">JavaScript (Node.js)</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">SQL</span>
                     </div>
                 </div>
-                
+
                 <!-- Backend -->
                 <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
                     <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
@@ -366,12 +514,12 @@
                     </div>
                     <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Backend</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Flask</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Express.js</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">REST APIs</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Flask</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Express.js</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">REST APIs</span>
                     </div>
                 </div>
-                
+
                 <!-- Databases -->
                 <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
                     <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
@@ -379,13 +527,13 @@
                     </div>
                     <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Databases</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">MySQL</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">MongoDB</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">PostgreSQL</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Redis</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">MySQL</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">MongoDB</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">PostgreSQL</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Redis</span>
                     </div>
                 </div>
-                
+
                 <!-- Tools -->
                 <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
                     <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
@@ -393,12 +541,12 @@
                     </div>
                     <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Tools</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Docker (learning)</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Git</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Linux fundamentals</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Docker (learning)</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Git</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Linux fundamentals</span>
                     </div>
                 </div>
-                
+
                 <!-- Concepts -->
                 <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
                     <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
@@ -406,14 +554,14 @@
                     </div>
                     <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Concepts</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Transactions</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Data Accuracy</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Security</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Caching</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Fintech Logic</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Transactions</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Data Accuracy</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Security</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Caching</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Fintech Logic</span>
                     </div>
                 </div>
-                
+
                 <!-- Cloud -->
                 <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 card-hover border border-pink-100">
                     <div class="w-14 h-14 rounded-2xl gradient-magenta flex items-center justify-center mb-4">
@@ -421,8 +569,8 @@
                     </div>
                     <h3 class="font-display text-xl font-bold text-gray-800 mb-4">Cloud</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">AWS (learning)</span>
-                        <span class="skill-tag px-3 py-2 rounded-full text-sm text-gray-700">Azure (learning)</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">AWS (learning)</span>
+                        <span class="skill-tag px-3 py-2 rounded-full text-sm">Azure (learning)</span>
                     </div>
                 </div>
             </div>
@@ -433,12 +581,10 @@
     <section id="education" class="py-20 bg-gradient-to-br from-pink-50/50 to-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">
-                    <span class="text-magenta">Education</span> & Learning
-                </h2>
+                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4"><span class="text-magenta">Education</span> & Learning</h2>
                 <div class="w-20 h-1 bg-magenta rounded-full mx-auto"></div>
             </div>
-            
+
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- University -->
                 <div class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-pink-100">
@@ -452,7 +598,7 @@
                     <p class="text-magenta font-medium mb-4">University of Science & Culture</p>
                     <p class="text-gray-600 text-sm">Completed comprehensive engineering program with strong foundation in problem-solving and technical skills.</p>
                 </div>
-                
+
                 <!-- Current Learning -->
                 <div class="bg-white rounded-2xl shadow-lg p-8 card-hover border border-pink-100">
                     <div class="flex items-start justify-between mb-4">
@@ -478,13 +624,11 @@
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">
-                    Get In <span class="text-magenta">Touch</span>
-                </h2>
+                <h2 class="font-display text-4xl font-bold text-gray-800 mb-4">Get In <span class="text-magenta">Touch</span></h2>
                 <div class="w-20 h-1 bg-magenta rounded-full mx-auto mb-6"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto">I'm currently looking for new opportunities. Feel free to reach out if you'd like to connect!</p>
             </div>
-            
+
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <!-- Phone -->
                 <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center card-hover border border-pink-100">
@@ -494,7 +638,7 @@
                     <h3 class="font-semibold text-gray-800 mb-2">Phone</h3>
                     <a href="tel:+971552501210" class="text-magenta hover:underline">+971-55-250-1210</a>
                 </div>
-                
+
                 <!-- Email -->
                 <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center card-hover border border-pink-100">
                     <div class="w-16 h-16 rounded-full gradient-magenta flex items-center justify-center mx-auto mb-4">
@@ -503,7 +647,7 @@
                     <h3 class="font-semibold text-gray-800 mb-2">Email</h3>
                     <a href="mailto:Neda.alipour.dev@gmail.com" class="text-magenta hover:underline">Neda.alipour.dev@gmail.com</a>
                 </div>
-                
+
                 <!-- Location -->
                 <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center card-hover border border-pink-100">
                     <div class="w-16 h-16 rounded-full gradient-magenta flex items-center justify-center mx-auto mb-4">
@@ -513,14 +657,14 @@
                     <p class="text-magenta">Dubai, United Arab Emirates</p>
                 </div>
             </div>
-            
+
             <!-- Social Links -->
             <div class="flex justify-center space-x-6">
-                <a href="https://linkedin.com/in/neda-alipour" target="_blank" class="flex items-center space-x-3 bg-white px-6 py-4 rounded-full shadow-lg border border-pink-100 hover:shadow-xl hover:border-magenta transition-all">
+                <a href="https://linkedin.com/in/neda-alipour" target="_blank" class="flex items-center space-x-3 bg-white px-6 py-4 rounded-full shadow-lg border border-pink-100 hover:shadow-xl hover:border-magenta transition-all" rel="noopener">
                     <svg class="w-6 h-6 text-magenta" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     <span class="font-medium text-gray-700">LinkedIn</span>
                 </a>
-                <a href="https://github.com/neda-alipour" target="_blank" class="flex items-center space-x-3 bg-white px-6 py-4 rounded-full shadow-lg border border-pink-100 hover:shadow-xl hover:border-magenta transition-all">
+                <a href="https://github.com/neda-alipour" target="_blank" class="flex items-center space-x-3 bg-white px-6 py-4 rounded-full shadow-lg border border-pink-100 hover:shadow-xl hover:border-magenta transition-all" rel="noopener">
                     <svg class="w-6 h-6 text-magenta" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     <span class="font-medium text-gray-700">GitHub</span>
                 </a>
@@ -540,57 +684,216 @@
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
-        
+
         // Close mobile menu when clicking a link
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
         });
-        
-        // Navbar scroll effect
+
+        // Navbar glass scroll effect
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
-            }
-        });
-        
+        const onScroll = () => {
+            navbar.classList.toggle('nav-scrolled', window.scrollY > 20);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                const target = document.querySelector(href);
+                if (!target) return;
+
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
             });
         });
-        
+
+        // Projects (editable data)
+        const projects = [
+            {
+                title: 'Transaction Reconciliation Tool',
+                subtitle: 'Backend automation / data integrity',
+                description: 'A backend-focused tool to compare trading records across sources, flag mismatches, and generate actionable reports for investigation.',
+                highlights: [
+                    'Designed clear reconciliation rules and validation steps for high-sensitivity data',
+                    'Automated report generation to reduce manual checks',
+                    'Built with a focus on traceability and repeatable runs'
+                ],
+                stack: ['Python', 'SQL', 'MySQL', 'Redis'],
+                links: {
+                    github: '',
+                    demo: ''
+                }
+            },
+            {
+                title: 'REST API Starter Kit',
+                subtitle: 'Clean architecture / scalable APIs',
+                description: 'A structured API template with consistent error handling, request validation, and environment-based configuration—ready to extend for real products.',
+                highlights: [
+                    'Implemented standard API patterns (pagination, validation, consistent responses)',
+                    'Added logging + health endpoints for production readiness',
+                    'Focused on maintainable project layout'
+                ],
+                stack: ['Python', 'Flask', 'REST APIs'],
+                links: {
+                    github: '',
+                    demo: ''
+                }
+            },
+            {
+                title: 'Queue Worker & Scheduled Jobs',
+                subtitle: 'Background processing / reliability',
+                description: 'A lightweight worker that processes background tasks (notifications, sync jobs) with retries, monitoring hooks, and clear failure reporting.',
+                highlights: [
+                    'Added retry strategy + dead-letter style handling for failed jobs',
+                    'Separated sync/async responsibilities for better reliability',
+                    'Optimized for predictable throughput'
+                ],
+                stack: ['Python', 'Redis', 'Caching', 'Linux'],
+                links: {
+                    github: '',
+                    demo: ''
+                }
+            }
+        ];
+
+        const projectFiltersEl = document.getElementById('projectFilters');
+        const projectsGridEl = document.getElementById('projectsGrid');
+
+        const state = {
+            filter: 'All'
+        };
+
+        const uniq = (arr) => Array.from(new Set(arr));
+
+        function buildFilters() {
+            const tags = uniq(projects.flatMap(p => p.stack)).sort((a, b) => a.localeCompare(b));
+            const filters = ['All', ...tags];
+
+            projectFiltersEl.innerHTML = '';
+            filters.forEach(name => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'chip-btn px-4 py-2 rounded-full text-sm font-medium';
+                btn.textContent = name;
+                btn.setAttribute('aria-pressed', String(state.filter === name));
+                if (state.filter === name) btn.classList.add('active');
+
+                btn.addEventListener('click', () => {
+                    state.filter = name;
+                    buildFilters();
+                    renderProjects();
+                });
+
+                projectFiltersEl.appendChild(btn);
+            });
+        }
+
+        function linkBtn(label, href) {
+            if (!href) return '';
+            const safeHref = href.replace(/"/g, '&quot;');
+            return `
+                <a href="${safeHref}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-pink-200 text-gray-700 hover:border-magenta hover:text-magenta transition-colors">
+                    <span class="text-sm font-medium">${label}</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7v7m0-7L10 14" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10v10a1 1 0 001 1h10" />
+                    </svg>
+                </a>
+            `;
+        }
+
+        function renderProjects() {
+            const filtered = state.filter === 'All'
+                ? projects
+                : projects.filter(p => p.stack.includes(state.filter));
+
+            projectsGridEl.innerHTML = filtered.map(p => {
+                const tags = p.stack.slice(0, 6).map(t => `
+                    <span class="proj-tag text-magenta px-3 py-1 rounded-full text-xs font-medium">${t}</span>
+                `).join('');
+
+                const highlights = p.highlights.map(h => `
+                    <li class="flex gap-2 text-sm text-gray-600">
+                        <span class="mt-2 w-1.5 h-1.5 rounded-full bg-magenta shrink-0"></span>
+                        <span>${h}</span>
+                    </li>
+                `).join('');
+
+                const actions = [
+                    linkBtn('GitHub', p.links.github),
+                    linkBtn('Live', p.links.demo)
+                ].join('');
+
+                return `
+                    <article class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-7 border border-pink-100 card-hover flex flex-col">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <h3 class="font-display text-xl font-bold text-gray-800">${p.title}</h3>
+                                <p class="text-magenta text-sm font-medium mt-1">${p.subtitle}</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-2xl gradient-magenta flex items-center justify-center shrink-0" aria-hidden="true">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-600 mt-4 leading-relaxed">${p.description}</p>
+
+                        <ul class="mt-5 space-y-2">${highlights}</ul>
+
+                        <div class="mt-6 flex flex-wrap gap-2">${tags}</div>
+
+                        <div class="mt-7 flex flex-wrap gap-3">
+                            ${actions || '<span class="text-xs text-gray-500">Links coming soon</span>'}
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            if (filtered.length === 0) {
+                projectsGridEl.innerHTML = `
+                    <div class="md:col-span-2 lg:col-span-3 bg-pink-50/60 border border-pink-100 rounded-2xl p-10 text-center">
+                        <p class="text-gray-700 font-medium">No projects match this filter.</p>
+                        <p class="text-gray-600 mt-2 text-sm">Try selecting “All”.</p>
+                    </div>
+                `;
+            }
+        }
+
+        buildFilters();
+        renderProjects();
+
         // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
-        
+
         document.querySelectorAll('section > div').forEach(el => {
             observer.observe(el);
         });
