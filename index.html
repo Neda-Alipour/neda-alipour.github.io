@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>Neda Alipour | Backend Developer</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -133,7 +132,7 @@
             position: absolute;
             border-radius: 50%;
             pointer-events: none;
-            opacity: 0.26;
+            opacity: 0.18;
             mix-blend-mode: multiply;
             background: radial-gradient(circle at 30% 30%,
                     rgba(244, 114, 182, 0.98) 0%,
@@ -635,15 +634,25 @@
                 Neda <span class="text-magenta">Alipour</span>
             </h1>
             <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10 fade-in delay-2">
-                Curious and self-driven software engineer crafting robust backend solutions with precision and passion.
+                Backend developer with startup experience, focused on clean APIs, data integrity, and real-world backend
+                systems.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in delay-3">
                 <a href="#contact"
                     class="gradient-magenta text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg shadow-pink-200">Get
                     In Touch</a>
-                <a href="#experience"
+                <a href="#projects"
                     class="border-2 border-magenta text-magenta px-8 py-4 rounded-full font-medium hover:bg-magenta hover:text-white transition-all">View
                     My Work</a>
+                <a href="Neda-Alipour-Resume.pdf" download
+                    class="border-2 border-magenta text-magenta px-8 py-4 rounded-full font-medium hover:bg-magenta hover:text-white transition-all inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                        </path>
+                    </svg>
+                    Download Resume
+                </a>
             </div>
 
             <!-- Social Links -->
@@ -707,47 +716,21 @@
                             class="text-magenta">Me</span></h2>
                     <div class="w-20 h-1 bg-magenta rounded-full mb-6"></div>
                     <p class="text-gray-600 leading-relaxed mb-4">
-                        <strong class="text-gray-800">Backend Developer</strong> focused on building reliable APIs and
-                        data-driven systems.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                        I design and implement backend services with an emphasis on clean architecture, maintainability,
-                        and real-world use cases. I have hands-on experience working in a startup environment, building
-                        APIs, working with
-                        databases, and integrating external services.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        👉 View my projects below or explore my GitHub for implementation details.
+                        I’m a <strong class="text-gray-800">backend developer</strong> who enjoys turning complex
+                        requirements
+                        into reliable, maintainable systems.
                     </p>
 
-                    <!-- Social Links -->
-                    <div class="flex flex-wrap gap-4 mb-6">
-                        <a href="https://linkedin.com/in/neda-alipour" target="_blank" rel="noopener"
-                            class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-pink-100 text-gray-700 hover:text-magenta hover:border-magenta transition-all">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                            </svg>
-                            <span class="text-sm font-medium">LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/neda-alipour" target="_blank" rel="noopener"
-                            class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-pink-100 text-gray-700 hover:text-magenta hover:border-magenta transition-all">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                            <span class="text-sm font-medium">GitHub</span>
-                        </a>
-                        <a href="mailto:Neda.alipour.dev@gmail.com"
-                            class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-pink-100 text-gray-700 hover:text-magenta hover:border-magenta transition-all">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                            <span class="text-sm font-medium">Email</span>
-                        </a>
-                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        I’ve worked in a startup environment where I built and maintained APIs,
+                        handled real production data, and collaborated closely with frontend developers.
+                        My focus is always on data integrity, clarity, and long-term maintainability.
+                    </p>
+
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        I’m especially interested in backend roles where clean architecture,
+                        well-designed APIs, and thoughtful problem-solving matter more than buzzwords.
+                    </p>
 
                     <div class="flex flex-wrap gap-3">
                         <span class="px-4 py-2 bg-pink-50 text-magenta rounded-full text-sm font-medium">Problem
@@ -775,8 +758,8 @@
             <div class="bg-white rounded-2xl shadow-lg border border-pink-100 p-8 card-hover">
                 <div class="flex flex-col gap-4 mb-8">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                        <h3 class="font-display text-2xl font-bold text-gray-800">Backend Developer — Startup
-                            Environment</h3>
+                        <h3 class="font-display text-2xl font-bold text-gray-800">Backend Developer — Fintech Startup
+                        </h3>
                         <span
                             class="text-magenta font-medium bg-pink-50 px-4 py-2 rounded-full text-sm self-start sm:self-auto">
                             2022 – 2024</span>
@@ -1060,8 +1043,7 @@
 
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <!-- Phone -->
-                <div
-                    class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center card-hover border border-pink-100">
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center border border-pink-100">
                     <div class="w-16 h-16 rounded-full gradient-magenta flex items-center justify-center mx-auto mb-4">
                         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1074,8 +1056,7 @@
                 </div>
 
                 <!-- Email -->
-                <div
-                    class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center card-hover border border-pink-100">
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center border border-pink-100">
                     <div class="w-16 h-16 rounded-full gradient-magenta flex items-center justify-center mx-auto mb-4">
                         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1089,8 +1070,7 @@
                 </div>
 
                 <!-- Location -->
-                <div
-                    class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center card-hover border border-pink-100">
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-8 text-center border border-pink-100">
                     <div class="w-16 h-16 rounded-full gradient-magenta flex items-center justify-center mx-auto mb-4">
                         <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1183,14 +1163,32 @@
         // Projects (editable data)
         const projects = [
             {
-                title: 'Blog Web Application',
-                subtitle: 'Capstone Project 1 - Angela Yu Web Development Bootcamp',
-                description: 'The goal of this project is to create a Blog web application using Node.js, Express.js, and EJS. The application allows users to create and view blog posts.',
+                title: 'Book Notes — Personal Reading Tracker',
+                subtitle: 'Full-stack application for managing books, notes, and reading history',
+                description: 'A full-stack web application that allows users to track books they’ve read, store personal notes and ratings, and organize reading history using a relational database.',
                 highlights: [
-                    'Post Creation: Users are able to create new posts',
-                    'Post Viewing: The home page allows the user to view all their posts',
-                    'Post Update/Delete: Users are edit and delete posts as needed',
-                    'Clean, responsive, minimalist UI with a pinkish-purple color palette'
+                    'Designed and implemented CRUD operations for books, notes, ratings, and reading dates',
+                    'Modeled relational data using PostgreSQL for persistent storage',
+                    'Implemented server-side sorting (by date, rating, and title)',
+                    'Integrated Open Library API to dynamically fetch book cover images',
+                    'Ensured data consistency and clean separation between routes, controllers, and views',
+                ],
+                stack: ['Node.js', 'Express.js', 'PostgreSQL', 'EJS', 'RESTful routing'],
+                links: {
+                    github: 'https://github.com/Neda-Alipour/Book-Notes',
+                    demo: ''
+                }
+            },
+            {
+                title: 'Blog Platform — Server-Rendered CRUD Application',
+                subtitle: 'Backend-driven blog system with structured content management',
+                description: 'A server-rendered blog platform focused on content creation, editing, and deletion using clean backend routing and data handling.',
+                highlights: [
+                    'Implemented full CRUD functionality for blog posts',
+                    'Designed REST-style routes for creating, updating, and deleting content',
+                    'Handled server-side rendering with EJS templates',
+                    'Structured application logic for maintainability and readability',
+                    'Practiced clean separation between routing, business logic, and views'
                 ],
                 stack: ['Node.js', 'Express.js', 'EJS'],
                 links: {
@@ -1198,49 +1196,16 @@
                     demo: ''
                 }
             },
+
             {
-                title: 'Weather API Application',
-                subtitle: 'Capstone Project 2 - Angela Yu Web Development Bootcamp',
-                description: 'A website using the Express/Node.js platform, with the Axios HTTP client, that integrates a chosen public API from the given list: Public API Lists.',
+                title: 'Egg Timer — JavaScript Utility',
+                subtitle: 'Lightweight timer application focused on state and event handling',
+                description: 'A simple timing utility built to practice JavaScript state management, user interaction, and precise timing logic.',
                 highlights: [
-                    'Develop an understanding of how to integrate public APIs into web projects',
-                    'Enhance understanding of client-server communication using Axios',
-                    'Gain practical experience using Express/Node.js for server-side programming',
-                    'Demonstrate ability to manipulate, present, and work with data retrieved from APIs',
-                ],
-                stack: ['Node.js', 'Express.js', 'EJS', 'Axios'],
-                links: {
-                    github: 'https://github.com/Neda-Alipour/Weather-API-Application',
-                    demo: ''
-                }
-            },
-            {
-                title: 'Book Notes',
-                subtitle: 'Capstone Project 3 - Angela Yu Web Development Bootcamp',
-                description: 'A full-stack web application for tracking books you have read, including personal notes, ratings, reading dates, and dynamically generated book covers using a public API.',
-                highlights: [
-                    'Add, edit, view, and delete books',
-                    'Store personal notes, ratings, and reading dates',
-                    'Sort books by: Date read, Rating, Title',
-                    'Persistent storage using PostgreSQL',
-                    'Dynamic book cover retrieval using the Open Library public API',
-                    'Server-side rendering with EJS templates',
-                ],
-                stack: ['Node.js', 'Express.js', 'PostgreSQL', 'Axios', 'dotenv', 'EJS'],
-                links: {
-                    github: 'https://github.com/Neda-Alipour/Book-Notes',
-                    demo: ''
-                }
-            },
-            {
-                title: 'Egg Timer',
-                subtitle: 'Personal Project',
-                description: 'A pixel-art desktop timer developed with Vue 3 and Electron. The project focuses on maintainable code, state management, and native desktop behavior.',
-                highlights: [
-                    'Desktop application using Electron',
-                    'Vue 3 (Composition API) for UI and state management',
+                    'Implemented countdown logic with accurate time tracking',
+                    'Managed UI state transitions based on timer status',
                     'Clear application states: idle, running, done',
-                    'Component-based view architecture'
+                    'Clean, readable JavaScript logic with separation of concerns'
                 ],
                 stack: ['Electron', 'Vue 3', 'Vite', 'JavaScript'],
                 links: {
@@ -1301,10 +1266,22 @@
                 ? projects
                 : projects.filter(p => p.stack.includes(state.filter));
 
-            projectsGridEl.innerHTML = filtered.map(p => {
-                const tags = p.stack.slice(0, 6).map(t => `
-                    <span class="proj-tag text-magenta px-3 py-1 rounded-full text-xs font-medium">${t}</span>
-                `).join('');
+            projectsGridEl.innerHTML = filtered.map((p, index) => {
+                // Check if this is the featured project (first in the original list)
+                const isFeatured = projects.indexOf(p) === 0;
+
+                const isBackendProject = !p.title.includes('Egg Timer');
+
+                const backendBadge = isBackendProject
+                    ? '<span class="proj-tag px-3 py-1 rounded-full text-xs font-medium" style="background: linear-gradient(135deg, #d63f8f 0%, #f472b6 100%); color: white;">Backend-focused</span>'
+                    : '';
+
+                const tags = [
+                    backendBadge,
+                    ...p.stack.slice(0, 5).map(t => `
+                        <span class="proj-tag text-magenta px-3 py-1 rounded-full text-xs font-medium">${t}</span>
+                    `)
+                ].filter(Boolean).join('');
 
                 const highlights = p.highlights.map(h => `
                     <li class="flex gap-2 text-sm text-gray-600">
@@ -1318,11 +1295,25 @@
                     linkBtn('Live', p.links.demo)
                 ].join('');
 
+                const featuredBadge = isFeatured ? `
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider gradient-magenta text-white shadow-md">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Featured Project
+                    </span>
+                ` : '';
+
+                const cardClasses = isFeatured
+                    ? 'md:col-span-2 bg-gradient-to-br from-pink-50 to-white rounded-2xl p-7 border-2 border-pink-300 card-hover flex flex-col'
+                    : 'bg-gradient-to-br from-pink-50 to-white rounded-2xl p-7 border border-pink-100 card-hover flex flex-col';
+
                 return `
-                    <article class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-7 border border-pink-100 card-hover flex flex-col">
+                    <article class="${cardClasses}">
                         <div class="flex items-start justify-between gap-4">
                             <div>
-                                <h3 class="font-display text-xl font-bold text-gray-800">${p.title}</h3>
+                                ${featuredBadge ? `<div class="mb-3">${featuredBadge}</div>` : ''}
+                                <h3 class="font-display ${isFeatured ? 'text-2xl' : 'text-xl'} font-bold text-gray-800">${p.title}</h3>
                                 <p class="text-magenta text-sm font-medium mt-1">${p.subtitle}</p>
                             </div>
                             <div class="w-12 h-12 rounded-2xl gradient-magenta flex items-center justify-center shrink-0" aria-hidden="true">
@@ -1334,7 +1325,7 @@
 
                         <p class="text-gray-600 mt-4 leading-relaxed">${p.description}</p>
 
-                        <ul class="mt-5 space-y-2">${highlights}</ul>
+                        <ul class="mt-5 space-y-2 ${isFeatured ? 'md:columns-2 md:gap-6' : ''}">${highlights}</ul>
 
                         <div class="mt-6 flex flex-wrap gap-2">${tags}</div>
 
