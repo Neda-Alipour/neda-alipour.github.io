@@ -1163,19 +1163,22 @@
         // Projects (editable data)
         const projects = [
             {
-                title: 'Book Notes — Personal Reading Tracker',
-                subtitle: 'Full-stack application for managing books, notes, and reading history',
-                description: 'A full-stack web application that allows users to track books they’ve read, store personal notes and ratings, and organize reading history using a relational database.',
+                title: 'Book Tracker — Personal Reading Tracker',
+                subtitle: 'Full-stack web application with authentication for managing books, notes, and reading history',
+                description: 'A full-stack web application that allows users to securely track books they’ve read, store personal notes and ratings, and organize their reading history. The application supports user authentication, third-party OAuth login, and persistent storage using a relational database.',
                 highlights: [
-                    'Designed and implemented CRUD operations for books, notes, ratings, and reading dates',
-                    'Modeled relational data using PostgreSQL for persistent storage',
-                    'Implemented server-side sorting (by date, rating, and title)',
-                    'Integrated Open Library API to dynamically fetch book cover images',
-                    'Ensured data consistency and clean separation between routes, controllers, and views',
+                    'Built secure user authentication using Passport.js with session-based login',
+                    'Integrated Google OAuth 2.0 for third-party authentication',
+                    'Implemented full CRUD functionality for managing books, notes, ratings, and reading dates',
+                    'Modeled relational data using PostgreSQL for persistent, structured storage',
+                    'Integrated the Open Library API to dynamically fetch book cover images',
+                    'Implemented server-side sorting (by date read, rating, and title)',
+                    'Protected routes to ensure authenticated access to user-specific actions',
+                    'Ensured clean separation of concerns between routes, controllers, and views',
                 ],
-                stack: ['Node.js', 'Express.js', 'PostgreSQL', 'EJS', 'RESTful routing'],
+                stack: ['Node.js', 'Express.js', 'PostgreSQL', 'Passport.js', 'OAuth 2.0', 'EJS', 'RESTful routing'],
                 links: {
-                    github: 'https://github.com/Neda-Alipour/Book-Notes',
+                    github: 'https://github.com/Neda-Alipour/book-tracker',
                     demo: ''
                 }
             },
